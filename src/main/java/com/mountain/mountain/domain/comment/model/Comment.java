@@ -23,7 +23,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentNo;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "uid")
     private User user;
     //관계설정시 상대객체 연결 , String x
@@ -35,10 +35,6 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "commu_no")
     private Community commuNo;
-
-    @ManyToOne
-    @JoinColumn(name = "writer_id")
-    private User writerId;
 
     @ManyToMany
     @JoinColumn(name = "cate_id")
