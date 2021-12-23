@@ -36,7 +36,7 @@ public class Comment {
     @JoinColumn(name = "commu_no")
     private Community commuNo;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "cate_id")
     private Category cateId;
 

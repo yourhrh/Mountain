@@ -25,7 +25,7 @@ public class Community {
     @JoinColumn(name = "write_id")
     private User writerId;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "cate_id")
     private Category cateId;
 
