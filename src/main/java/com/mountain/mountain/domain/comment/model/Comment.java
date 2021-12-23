@@ -1,6 +1,10 @@
 package com.mountain.mountain.domain.comment.model;
 
 
+import com.mountain.mountain.domain.category.model.Category;
+import com.mountain.mountain.domain.community.model.Community;
+import com.mountain.mountain.domain.mountain.model.Mountain;
+import com.mountain.mountain.domain.user.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,25 +23,26 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentNo;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "uid")
-    private String uid;
+    private User user;
+    //관계설정시 상대객체 연결 , String x
 
-    @OneToOne
+    @ManyToOne // 데이터 n : 1 매핑 하나의 산에 여러개 댓글
     @JoinColumn(name = "mountain_no")
-    private Long mountainNo;
+    private Mountain mountainNo;
 
     @ManyToOne
     @JoinColumn(name = "commu_no")
-    private Long commuNo;
+    private Community commuNo;
 
     @ManyToOne
     @JoinColumn(name = "writer_id")
-    private String writerId;
+    private User writerId;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "cate_id")
-    private Long cateId;
+    private Category cateId;
 
     @Column(name = "comment_content", length = 300)
     private String commentContent;

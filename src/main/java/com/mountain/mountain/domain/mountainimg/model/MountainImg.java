@@ -1,5 +1,6 @@
 package com.mountain.mountain.domain.mountainimg.model;
 
+import com.mountain.mountain.domain.mountain.model.Mountain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,9 +18,9 @@ public class MountainImg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name ="mountain_no")
-    private Long mountainNo;
+    private Mountain mountainNo;
 
     @Column(name = "img_url")
     private String imgUrl;

@@ -1,6 +1,8 @@
 package com.mountain.mountain.domain.community.model;
 
 
+import com.mountain.mountain.domain.category.model.Category;
+import com.mountain.mountain.domain.user.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,11 +23,11 @@ public class Community {
 
     @OneToOne
     @JoinColumn(name = "write_id")
-    private String writerId;
+    private User writerId;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "cate_id")
-    private Long cateId;
+    private Category cateId;
 
     @Column(name = "content")
     private String content;

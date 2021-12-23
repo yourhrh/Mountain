@@ -1,6 +1,8 @@
 package com.mountain.mountain.domain.likedmountain.model;
 
 
+import com.mountain.mountain.domain.mountain.model.Mountain;
+import com.mountain.mountain.domain.user.model.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,13 +20,13 @@ public class Likedmountain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "uid")
-    private String uid;
+    private User uid;
 
     @OneToOne
     @JoinColumn(name = "mountain_no")
-    private Long mountainNo;
+    private Mountain mountainNo;
 
 
 }
