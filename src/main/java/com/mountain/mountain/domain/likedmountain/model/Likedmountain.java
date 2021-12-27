@@ -22,7 +22,7 @@ public class Likedmountain {
 
     @ManyToOne
     @JoinColumn(name = "uid")
-    private User uid;
+    private User user;
 
     @OneToOne
     @JoinColumn(name = "mountain_no")

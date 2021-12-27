@@ -9,13 +9,11 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
-@Table(name ="user")
+@Table(name ="user_info")
 public class User {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private String id;
 
     @Column(name = "user_img")
@@ -23,6 +21,4 @@ public class User {
 
     @Column(name = "name")
     private String name;
-
-
 }

@@ -26,7 +26,6 @@ public class Comment {
     @OneToOne
     @JoinColumn(name = "uid")
     private User user;
-    //관계설정시 상대객체 연결 , String x
 
     @ManyToOne // 데이터 n : 1 매핑 하나의 산에 여러개 댓글
     @JoinColumn(name = "mountain_no")
