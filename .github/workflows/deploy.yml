@@ -53,4 +53,3 @@ jobs:
           heroku_app_name: "mountain-couchcoding" #
           heroku_email: "jiinahn92@gmail.com"
           branch: master
-          dontuseforce: true
