@@ -62,9 +62,7 @@ jobs:
               login $HEROKU_EMAIL 
               password $HEROKU_API_KEY
           EOF
-          heroku git:remote --app moutain
-          git remote -v
-          git push heroku master 
+          git push heroku HEAD:master
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_EMAIL: jiinahn92@gmail.com
