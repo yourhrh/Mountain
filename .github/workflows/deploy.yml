@@ -54,6 +54,7 @@ jobs:
       #     heroku_email: "jiinahn92@gmail.com"
       - name: Heroku deploy
         run: |
+          heroku auth:token
           cat > ~/.netrc <<EOF
             machine api.heroku.com
               login jiinahn92@gmail.com
