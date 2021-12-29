@@ -54,15 +54,15 @@ jobs:
       #     heroku_email: "jiinahn92@gmail.com"
       - name: Heroku deploy
         run: |
-          heroku auth:token
           cat > ~/.netrc <<EOF
             machine api.heroku.com
               login jiinahn92@gmail.com
-              password ${{ secrets.HEROKU_API_KEY }}
+              password $HEROKU_API_KEY
             machine git.heroku.com
               login jiinahn92@gmail.com
-              password ${{ secrets.HEROKU_API_KEY }}
+              password $HEROKU_API_KEY
           EOF
+          heroku auth:token
           heroku git:remote -a moutain
           git remote -v
           git push heroku main
