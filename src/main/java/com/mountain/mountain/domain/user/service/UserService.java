@@ -22,10 +22,7 @@ public class UserService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findById(username);
-        if(user.isPresent()) {
-            return user.get();
-        } else {
-            throw new CustomException(ErrorCode.NOT_FOUND_USER);
-        }
+        return user.orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
+
     }
 }
