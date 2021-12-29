@@ -56,16 +56,17 @@ jobs:
         run: |
           cat > ~/.netrc <<EOF
             machine api.heroku.com
-              login jiinahn92@gmail.com
+              login $HEROKU_EMAIL
               password $HEROKU_API_KEY
             machine git.heroku.com
-              login jiinahn92@gmail.com
+              login $HEROKU_EMAIL 
               password $HEROKU_API_KEY
           EOF
-          echo $HEROKU_API_KEY | heroku login
-          heroku git:remote -a moutain
+          heroku git:remote --app moutain
           git remote -v
-          git push heroku main
+          git push heroku master 
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_EMAIL: jiinahn92@gmail.com
+          HEROKU_APP_NAME: moutain
 
