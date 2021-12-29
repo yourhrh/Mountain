@@ -50,8 +50,8 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "moutain" #
-          heroku_email: "jiinahn92@gmail.com"
-          
+          heroku_email: "couchcoding.help@gmail.com"
+
       # - name: Heroku deploy
       #   run: |
       #     cat > ~/.netrc <<EOF
