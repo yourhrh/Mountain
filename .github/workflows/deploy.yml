@@ -58,10 +58,10 @@ jobs:
           cat > ~/.netrc <<EOF
             machine api.heroku.com
               login jiinahn92@gmail.com
-              password $HEROKU_API_KEY
+              password ${{ secrets.HEROKU_API_KEY }}
             machine git.heroku.com
               login jiinahn92@gmail.com
-              password $HEROKU_API_KEY
+              password ${{ secrets.HEROKU_API_KEY }}
           EOF
           heroku git:remote -a moutain
           git remote -v
