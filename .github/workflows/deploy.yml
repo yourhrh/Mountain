@@ -45,10 +45,27 @@ jobs:
           sh build.sh
      
       
-      # heroku에 배포하기
-      - name: deploy to heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "moutain" #
-          heroku_email: "jiinahn92@gmail.com"
+      # # heroku에 배포하기
+      # - name: deploy to heroku
+      #   uses: akhileshns/heroku-deploy@v3.12.12
+      #   with:
+      #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      #     heroku_app_name: "moutain" #
+      #     heroku_email: "jiinahn92@gmail.com"
+      - name: Heroku login credentials
+        run: |
+          cat > ~/.netrc <<EOF
+            machine api.heroku.com
+              login jiinahn92@gmail.com
+              password $HEROKU_API_KEY
+            machine git.heroku.com
+              login jiinahn92@gmail.com
+              password $HEROKU_API_KEY
+          EOF
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - name: Add Heroku remote
+        run: heroku git:remote --app moutain
+      - name: Push to Heroku
+        run: git push heroku master
+
