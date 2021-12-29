@@ -62,7 +62,7 @@ jobs:
               login jiinahn92@gmail.com
               password $HEROKU_API_KEY
           EOF
-          heroku auth:token
+          echo $HEROKU_API_KEY | heroku login
           heroku git:remote -a moutain
           git remote -v
           git push heroku main
